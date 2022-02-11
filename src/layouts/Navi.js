@@ -7,8 +7,12 @@ export default function Navi() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
-  function handleSignOut(params){
+  function handleSignOut(){
     setIsAuthenticated(false)
+  }
+
+  function handleSignIn(){
+    setIsAuthenticated(true)
   }
 
   return <div>
@@ -25,7 +29,7 @@ export default function Navi() {
         <Menu.Menu position='right'>
           
           {
-            isAuthenticated?<SignedIn signOut={handleSignOut}/>:<SignedOut/>
+            isAuthenticated?<SignedIn singOut={handleSignOut}/>:<SignedOut signOut={handleSignIn}/>
           }
           
         </Menu.Menu>
