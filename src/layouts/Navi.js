@@ -1,41 +1,41 @@
-import React, {useState} from 'react';
-import {Container, Menu } from 'semantic-ui-react'
-import SignedIn from './SignedIn';
-import SignedOut from './SignedOut';
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import { NavLink } from "react-router-dom";
+import { Container, MenuItem, Menu } from "semantic-ui-react";
+import SignedIn from "./SignedIn";
+import SignedOut from "./SignedOut";
 
 export default function Navi() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const history = useNavigate();
 
-  function handleSignOut(){
-    setIsAuthenticated(false)
+  function handleSignOut() {
+    setIsAuthenticated(false);
+    history("/");
   }
 
-  function handleSignIn(){
-    setIsAuthenticated(true)
+  function handleSignIn() {
+    setIsAuthenticated(true);
+    history("/products");
   }
 
-  return <div>
-    <Menu inverted fixed="top">
-      <Container>
-
-      <Menu.Item
-          name='home'
-        />
-        <Menu.Item
-          name='messages'
-        />
-
-        <Menu.Menu position='right'>
+  return (
+    <div>
+      <Menu inverted fixed="top">
+        <Container>
           
-          {
-            isAuthenticated?<SignedIn singOut={handleSignOut}/>:<SignedOut signOut={handleSignIn}/>
-          }
-          
-        </Menu.Menu>
-      </Container>
-    
-       
+          <MenuItem name="Home" as={NavLink} to="/"/>
+
+          <Menu.Menu position="right">
+            {isAuthenticated ? (
+              <SignedIn singOut={handleSignOut} />
+            ) : (
+              <SignedOut signOut={handleSignIn} />
+            )}
+          </Menu.Menu>
+        </Container>
       </Menu>
-  </div>;
+    </div>
+  );
 }
