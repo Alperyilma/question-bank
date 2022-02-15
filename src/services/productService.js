@@ -6,4 +6,7 @@ export class ProductService{
         return axios.get("http://localhost:8080/api/products/getall")    
     }
 
+
 }
+
+

@@ -5,6 +5,7 @@ import { Grid, GridColumn, GridRow } from 'semantic-ui-react'
 import { Routes,Route } from 'react-router-dom';
 import StartPage from '../pages/StartPage';
 import Formulas from '../pages/Formulas';
+import RegisterPage from '../pages/RegisterPage';
 
 
 
@@ -20,6 +21,7 @@ export default function Dashboard() {
           <Route exact path='/' element={<StartPage/>}/>
           <Route exact path='/products' element={<ProductList/>}/>
           <Route exact path='/formulas' element={<Formulas/>}/>
+          <Route exact path='/register' element={<RegisterPage/>}/>
         </Routes>
         </GridColumn>
       </GridRow>
