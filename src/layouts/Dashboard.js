@@ -6,6 +6,7 @@ import { Routes,Route } from 'react-router-dom';
 import StartPage from '../pages/StartPage';
 import Formulas from '../pages/Formulas';
 import RegisterPage from '../pages/RegisterPage';
+import LoginPage from '../pages/LoginPage';
 
 
 
@@ -22,6 +23,8 @@ export default function Dashboard() {
           <Route exact path='/products' element={<ProductList/>}/>
           <Route exact path='/formulas' element={<Formulas/>}/>
           <Route exact path='/register' element={<RegisterPage/>}/>
+          <Route exact path='/login' element={<LoginPage/>}/>
+
         </Routes>
         </GridColumn>
       </GridRow>

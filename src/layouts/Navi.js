@@ -24,8 +24,7 @@ export default function Navi() {
     <div>
       <Menu inverted fixed="top">
         <Container>
-          
-          <MenuItem name="Home" as={NavLink} to="/"/>
+          <MenuItem name="Home" as={NavLink} to="/" />
 
           <Menu.Menu position="right">
             {isAuthenticated ? (
