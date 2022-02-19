@@ -1,42 +1,54 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import "./login.css"
+import React, { useEffect, useState } from "react";
+import { Form, Button } from "semantic-ui-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
-  }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  useEffect(()=>{
+    if(localStorage.getItem("user-info")){
+    }
+  })
+
+
+  async function login() {
+    console.warn(email, password);
+    let item = { email, password };
+    let result = await fetch("http://localhost:8080/api/users/addLogin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(item),
+    });
+    result = await result.json();
+    localStorage.setItem("user-info", JSON.stringify(result));
   }
 
   return (
-    <div className="Login">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
+    <div>
+      <Form>
+        <Form.Field>
+          <label>Email</label>
+          <input
+            type="text"
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="alex@gmail.com"
           />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
+        </Form.Field>
+        <Form.Field>
+          <label>Password</label>
+          <input
             type="password"
-            value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder=""
           />
-        </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Login
+        </Form.Field>
+        <Form.Field></Form.Field>
+        <Button onClick={login} type="submit">
+          Submit
         </Button>
       </Form>
     </div>
