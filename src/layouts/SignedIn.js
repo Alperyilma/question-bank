@@ -11,16 +11,15 @@ export default function SignedIn({ singOut }) {
           spaced="right"
           src="https://blogtimenow.com/wp-content/uploads/2014/06/hide-facebook-profile-picture-notification.jpg"
         />
-        <Dropdown pointing="top right" text="Alper">
+        <Dropdown>
           <Dropdown.Menu>
             <Dropdown.Item
-              text="Exams"
-              icon="info"
+              onClick={singOut}
               as={NavLink}
-              to="/products"
+              to="/"
+              text="Sign out"
+              icon="sign-out"
             />
-
-            <Dropdown.Item onClick={singOut} text="Sign out" icon="sign-out" />
           </Dropdown.Menu>
         </Dropdown>
       </Menu.Item>
