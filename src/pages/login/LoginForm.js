@@ -11,7 +11,7 @@ export default function LoginForm({ Login, error }) {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form className="login--form" onSubmit={submitHandler}>
         <div className="form-inner">
           <h2>Login</h2>
           {(error !== "")?(<div className="error">{error}</div>):""}

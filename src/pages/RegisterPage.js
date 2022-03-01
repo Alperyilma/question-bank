@@ -3,7 +3,7 @@ import axios from "axios";
 import { Form, Button } from "semantic-ui-react";
 
 export default function RegisterPage() {
-  const url = "http://localhost:8080/api/users/add";
+  const url = "http://localhost:8080/api/users/addRegister";
 
   const [user, userSetData] = useState({
     email: "",
@@ -32,9 +32,9 @@ export default function RegisterPage() {
   return (
     <div>
       <Form onSubmit={(e) => submit(e)}>
-        <Form.Field>
+        <Form.Field className="register">
           <label>Email</label>
-          <input
+          <input className="register--input"
             onChange={(e) => handle(e)}
             value={user.email}
             id="email"
@@ -44,7 +44,7 @@ export default function RegisterPage() {
         </Form.Field>
         <Form.Field>
           <label>Password</label>
-          <input
+          <input className="register--input"
             onChange={(e) => handle(e)}
             value={user.password}
             id="password"

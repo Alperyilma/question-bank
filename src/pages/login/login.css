@@ -9,12 +9,12 @@ input,button{
 
 
 
-form{
+.login--form{
     display: block;
     position: relative;
 }
 
-form::after{
+.login--form::after{
     content: '';
     display: block;
     position: absolute;
@@ -25,7 +25,7 @@ form::after{
     z-index: 1;
 }
 
-form .form-inner{
+.login--form .form-inner{
     position: relative;
     display: block;
     background-color: #FFF;
@@ -33,14 +33,14 @@ form .form-inner{
     z-index: 2;
 }
 
-form .form-inner h2{
+.login--form .form-inner h2{
     color: #888;
     font-size: 28px;
     font-weight: 500;
     margin-bottom: 30px;
 }
 
-form .form-inner .form-group{
+.login--form .form-inner .form-group{
     display: block;
     width: 300px;
     margin-bottom: 15px;
@@ -67,11 +67,11 @@ form .form-inner .form-group{
     transition: 0.4s;
 }
 
-form .form-inner .form-group input:focus{
+.login--form .form-inner .form-group input:focus{
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
 
-form .form-inner input[type="submit"]{
+.login--form .form-inner input[type="submit"]{
     display: inline-block;
     padding: 10px 15px;
     border-radius: 8px;
@@ -84,7 +84,7 @@ form .form-inner input[type="submit"]{
     cursor: pointer;
 }
 
-form .form-inner input[type="submit"]:hover{
+.login--form .form-inner input[type="submit"]:hover{
     background-position: 100% 0%;
 }
 
