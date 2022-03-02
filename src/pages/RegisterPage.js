@@ -5,10 +5,17 @@ import { Form, Button } from "semantic-ui-react";
 export default function RegisterPage() {
   const url = "http://localhost:8080/api/users/addRegister";
 
+  const [message, setMessage] = useState("")
+
   const [user, userSetData] = useState({
     email: "",
     password: "",
   });
+
+
+  function succesMessage(){
+    setMessage("User resgistered")
+  }
 
   function submit(e) {
     e.preventDefault();
@@ -52,7 +59,8 @@ export default function RegisterPage() {
             placeholder="*****"
           />
         </Form.Field>
-        <Button type="submit">Submit</Button>
+        <Button onClick={succesMessage} type="submit">Submit</Button>
+        <p style={{color:"blue"}}>{message}</p>
       </Form>
     </div>
   );
