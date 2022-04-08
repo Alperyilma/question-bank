@@ -37,8 +37,6 @@ export default function LoginApp() {
 
   };
 
-
-
   return (
     <div className="LoginApp">
     
